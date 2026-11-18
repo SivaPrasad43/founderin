@@ -11,7 +11,12 @@ const serverSchema = z.object({
 })
 
 export function getServerEnv() {
-  return serverSchema.parse({
+  const parsed = serverSchema.safeParse({
     WHATSAPP_COMMUNITY_URL: process.env.WHATSAPP_COMMUNITY_URL,
   })
+  if (!parsed.success) {
+    const keys = [...new Set(parsed.error.issues.map((i) => i.path.join(".")))].join(", ")
+    throw new Error(`Missing or invalid environment variables: ${keys}.`)
+  }
+  return parsed.data
 }
