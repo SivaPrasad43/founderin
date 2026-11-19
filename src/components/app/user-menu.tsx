@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Home01Icon, Logout01Icon, UserIcon } from "@hugeicons/core-free-icons"
+import { Logout01Icon, UserIcon } from "@hugeicons/core-free-icons"
 import { Icon } from "@/components/icon"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -45,12 +45,6 @@ export function UserMenu({
         <DropdownMenuSeparator />
         {onboarded && (
           <>
-            <DropdownMenuItem asChild>
-              <Link href={ROUTES.home}>
-                <Icon icon={Home01Icon} size={16} />
-                Member home
-              </Link>
-            </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link href={ROUTES.profile}>
                 <Icon icon={UserIcon} size={16} />
