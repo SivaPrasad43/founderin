@@ -2,7 +2,6 @@ import { Suspense } from "react"
 import type { Metadata } from "next"
 import { PageIntro } from "@/components/app/page-intro"
 import { CommunityCard } from "@/components/home/community-card"
-import { MemberSummary } from "@/components/home/member-summary"
 import { RoadmapList } from "@/components/home/roadmap-list"
 import { Skeleton } from "@/components/ui/skeleton"
 import { requireOnboardedProfile } from "@/features/profile/queries"
@@ -35,10 +34,7 @@ async function MemberArea() {
         }
         description="You're one of the first people here. Join the community and help shape what FounderIn becomes."
       />
-      <div className="grid gap-4">
-        <CommunityCard joinedAt={profile.community_joined_at} />
-        <MemberSummary profile={profile} />
-      </div>
+      <CommunityCard joinedAt={profile.community_joined_at} />
     </div>
   )
 }
@@ -49,10 +45,7 @@ function HomeSkeleton() {
       <Skeleton className="mb-4 h-3 w-48" />
       <Skeleton className="mb-3 h-12 w-72 max-w-full" />
       <Skeleton className="mb-10 h-4 w-96 max-w-full" />
-      <div className="grid gap-4">
-        <Skeleton className="h-64 rounded-[6px]" />
-        <Skeleton className="h-24 rounded-[6px]" />
-      </div>
+      <Skeleton className="h-64 rounded-[6px]" />
     </div>
   )
 }

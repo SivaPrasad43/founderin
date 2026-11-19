@@ -54,7 +54,7 @@ export function UserMenu({
             <DropdownMenuItem asChild>
               <Link href={ROUTES.profile}>
                 <Icon icon={UserIcon} size={16} />
-                Edit profile
+                Profile
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
